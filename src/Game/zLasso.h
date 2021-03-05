@@ -33,6 +33,20 @@ struct zLasso
     xModelInstance* model;
 };
 
+struct zLassoGuide
+{
+	xModelInstance* poly;
+	xAnimState* lassoAnim;
+	int32 vertMap[16];
+};
+
+struct zLassoGuideList
+{
+	xEnt* target;
+	uint32 numGuides;
+	zLassoGuide guide[3];
+};
+
 void zLasso_scenePrepare();
 
 #endif

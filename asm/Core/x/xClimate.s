@@ -432,7 +432,8 @@ lbl_803CCA90:
 	.incbin "baserom.dol", 0x2B6330, 0x4
 lbl_803CCA94:
 	.incbin "baserom.dol", 0x2B6334, 0x4
-lbl_803CCA98:
+.global zLasso_float_1
+zLasso_float_1:
 	.incbin "baserom.dol", 0x2B6338, 0x4
 lbl_803CCA9C:
 	.incbin "baserom.dol", 0x2B633C, 0x4

@@ -2231,16 +2231,19 @@ zLasso_strings:
 	.incbin "baserom.dol", 0x259CF8, 0x18
 
 .section .bss
-lbl_802E5788:
+.global sGuideList
+sGuideList:
 	.skip 0x3800
 
 .section .sbss
 .global sLassoRaster
 sLassoRaster:
 	.skip 0x4
-lbl_803CB8DC:
+.global sNumGuideLists
+sNumGuideLists:
 	.skip 0x4
-lbl_803CB8E0:
+.global sCurrentGuide
+sCurrentGuide:
 	.skip 0x4
 .global lnverts
 lnverts:
@@ -2261,7 +2264,8 @@ lbl_803CDAF0:
 	.incbin "baserom.dol", 0x2B7390, 0x4
 lbl_803CDAF4:
 	.incbin "baserom.dol", 0x2B7394, 0x4
-lbl_803CDAF8:
+.global zLasso_float_2
+zLasso_float_2:
 	.incbin "baserom.dol", 0x2B7398, 0x4
 lbl_803CDAFC:
 	.incbin "baserom.dol", 0x2B739C, 0x4
@@ -2277,7 +2281,8 @@ lbl_803CDB10:
 	.incbin "baserom.dol", 0x2B73B0, 0x4
 lbl_803CDB14:
 	.incbin "baserom.dol", 0x2B73B4, 0x4
-lbl_803CDB18:
+.global zLasso_float_3
+zLasso_float_3:
 	.incbin "baserom.dol", 0x2B73B8, 0x4
 lbl_803CDB1C:
 	.incbin "baserom.dol", 0x2B73BC, 0x4
