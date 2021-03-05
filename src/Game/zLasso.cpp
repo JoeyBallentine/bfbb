@@ -5,8 +5,9 @@
 
 #include <types.h>
 
-extern RwTexture* sLassoRaster;
-extern char* zLasso_strings;
+extern RwRaster* sLassoRaster;
+extern char zLasso_strings[];
+extern int32 lnverts;
 
 // func_8009C000
 // #pragma GLOBAL_ASM("asm/Game/zLasso.s", "zLasso_Init__FP6zLassoP14xModelInstancefff")
@@ -14,18 +15,21 @@ void zLasso_Init(zLasso* lasso, xModelInstance* model, float32 x, float32 y, flo
 {
     if (!sLassoRaster)
     {
-        int32 hash = xStrHash(zLasso_strings);
-        RwTexture* tempTexture = (RwTexture*)xSTFindAsset(hash, 0);
-        if (!tempTexture)
+        RwTexture* tempTexture = (RwTexture*)xSTFindAsset(xStrHash(zLasso_strings), 0);
+        if (tempTexture)
         {
-            sLassoRaster = 0;
+          sLassoRaster = tempTexture->raster;
         }
         else
         {
-            sLassoRaster = tempTexture;
+            sLassoRaster = 0;
         }
     }
     iModelTagSetup((xModelTag*)&lasso->tag, (RpAtomic*)&model->Data, x, y, z);
+    lasso->anchor.x = x;
+    lasso->anchor.y = y;
+    lasso->anchor.z = z;
+    lnverts = 0x803c3de0;
 }
 
 // func_8009C0C0
