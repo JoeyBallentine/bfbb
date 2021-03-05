@@ -15,5 +15,7 @@ int32 iModelCullPlusShadow(RpAtomic* model, RwMatrix* mat, xVec3* shadowVec, int
 void iModelTagEval(RpAtomic* model, const xModelTag* tag, RwMatrixTag* mat, xVec3* dest);
 RpAtomic* iModelFileNew(void* buffer, uint32 size);
 void iModelRender(RpAtomic* model, RwMatrix* mat);
+uint32 iModelTagSetup(xModelTag* tag, RpAtomic* model, float32 x, float32 y, float32 z);
+uint32 iModelTagSetup(xModelTagWithNormal* tag, RpAtomic* model, float32 x, float32 y, float32 z);
 
 #endif

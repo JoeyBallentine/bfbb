@@ -2226,7 +2226,8 @@ xMat4x3RotC__FP7xMat4x3ffff:
 .endif
 
 .section .rodata
-lbl_8025CD18:
+.global zLasso_strings
+zLasso_strings:
 	.incbin "baserom.dol", 0x259CF8, 0x18
 
 .section .bss
@@ -2234,7 +2235,8 @@ lbl_802E5788:
 	.skip 0x3800
 
 .section .sbss
-lbl_803CB8D8:
+.global sLassoRaster
+sLassoRaster:
 	.skip 0x4
 lbl_803CB8DC:
 	.skip 0x4

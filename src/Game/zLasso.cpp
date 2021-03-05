@@ -1,9 +1,32 @@
 #include "zLasso.h"
+#include "../Core/x/xString.h"
+#include "../Core/x/xstransvc.h"
+#include "../Core/p2/iModel.h"
 
 #include <types.h>
 
+extern RwTexture* sLassoRaster;
+extern char* zLasso_strings;
+
 // func_8009C000
-#pragma GLOBAL_ASM("asm/Game/zLasso.s", "zLasso_Init__FP6zLassoP14xModelInstancefff")
+// #pragma GLOBAL_ASM("asm/Game/zLasso.s", "zLasso_Init__FP6zLassoP14xModelInstancefff")
+void zLasso_Init(zLasso* lasso, xModelInstance* model, float32 x, float32 y, float32 z)
+{
+    if (!sLassoRaster)
+    {
+        int32 hash = xStrHash(zLasso_strings);
+        RwTexture* tempTexture = (RwTexture*)xSTFindAsset(hash, 0);
+        if (!tempTexture)
+        {
+            sLassoRaster = 0;
+        }
+        else
+        {
+            sLassoRaster = tempTexture;
+        }
+    }
+    iModelTagSetup((xModelTag*)&lasso->tag, (RpAtomic*)&model->Data, x, y, z);
+}
 
 // func_8009C0C0
 #pragma GLOBAL_ASM("asm/Game/zLasso.s", "zLasso_AddGuide__FP4xEntP10xAnimStateP14xModelInstance")
