@@ -2242,7 +2242,8 @@ lbl_803CB8DC:
 	.skip 0x4
 lbl_803CB8E0:
 	.skip 0x4
-lbl_803CB8E4:
+.global lnverts
+lnverts:
 	.skip 0x4
 
 .section .sdata
